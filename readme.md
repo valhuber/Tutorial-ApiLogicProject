@@ -1,6 +1,23 @@
 # Sample Tutorial - API Logic Server
 
-You've already completed the `Create` step below, and are now viewing the readme in the created ApiLogicProject - the sample tutorial, created from [this database.](https://github.com/valhuber/ApiLogicServer/wiki/Sample-Database)  
+## Altered for Microsoft Dev-Workbench
+
+This is the standard sample project (Northwind), altered to run under dev-workbench:
+
+1. Altered `ui/admin/admin url` to set server location to https://valhuber-tutorial-apilogicproject-jjr5qwg72vxg-5656.githubpreview.dev/api
+
+2. In dev-workbench, add 5656 port
+
+3. Verify with cURL:
+
+``` bash
+curl -X GET "https://valhuber-tutorial-apilogicproject-jjr5qwg72vxg-5656.githubpreview.dev/api/Category/?fields%5BCategory%5D=Id%2CCategoryName%2CDescription&page%5Boffset%5D=0&page%5Blimit%5D=10&sort=Id%2CCategoryName%2CDescription%2Cid" -H  "accept: application/vnd.api+json" -H  "Content-Type: application/vnd.api+json"
+```
+
+You can run this locally - see the docker instructions in the [Quick Start](https://github.com/valhuber/ApiLogicServer/wiki/Quick-Start#install-guide).
+
+
+## Introduction
 
 In this tutorial, we will explore:
 
@@ -18,9 +35,9 @@ You can watch the tutorial in [this video.](https://youtu.be/-C5O453Q-Mc)
 
 &nbsp;&nbsp;
 
-## Establish your Python environment
-Install your projects' virtual environment
-as described in the [Quick Start](https://github.com/valhuber/ApiLogicServer/wiki/Quick-Start). See also the `venv_setup` directory in your API Logic Project.
+## Python environment
+Normally, you would install your projects' virtual environment
+as described in the [Quick Start](https://github.com/valhuber/ApiLogicServer/wiki/Quick-Start). Envisioned use for this project is under Docker - it runs under Docker, or dev-workbench, without configuration - the Docker evironment includes Python and API Logic Server.
 
 &nbsp;&nbsp;
 
