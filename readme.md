@@ -1,12 +1,14 @@
 # Sample Tutorial - API Logic Server
 
-## Altered for Microsoft Dev-Workbench
+## Altered for Microsoft Codespaces
 
-This is the standard sample project (Northwind), altered to run under dev-workbench:
+This is the standard sample project (Northwind), altered to run under Codespaces:
+
+<figure><img src="https://github.com/valhuber/ApiLogicServer/wiki/images/vscode/Codespace.png?raw=true"></figure>
 
 1. Altered `ui/admin/admin url` to set server location to https://valhuber-tutorial-apilogicproject-jjr5qwg72vxg-5656.githubpreview.dev/api
 
-2. In dev-workbench, add 5656 port
+2. In Codespaces, add 5656 port
 
 3. Verify with cURL:
 
