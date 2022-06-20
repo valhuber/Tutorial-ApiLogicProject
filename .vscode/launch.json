@@ -63,6 +63,16 @@
             "console": "integratedTerminal"
         },
         {
+            "name": "Python Status",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/api_logic_server_cli/test/basic/server_test.py",
+            "redirectOutput": true,
+            "justMyCode": false,
+            "args": ["go"],
+            "console": "integratedTerminal"
+        },
+        {
             "name": "Basic Server Test",
             "type": "python",
             "request": "launch",
