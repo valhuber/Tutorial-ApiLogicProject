@@ -11,6 +11,16 @@
             "program": "api_logic_server_run.py",
             "redirectOutput": true,
             "justMyCode": false,
+            "args": ["https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/", "5656"],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "ApiLogicServer-local",
+            "type": "python",
+            "request": "launch",
+            "program": "api_logic_server_run.py",
+            "redirectOutput": true,
+            "justMyCode": false,
             "args": ["localhost", "5656"],
             "console": "integratedTerminal"
         },
