@@ -1,4 +1,4 @@
-After completing the `ApiLogicServer create` step, you can view the readme in the created ApiLogicProject.  It contains the sample tutorial, created from [this database.](https://valhuber.github.io/ApiLogicServer/Sample-Database/).  
+After completing the `ApiLogicServer create` step, you can view the ```readme``` in the created API Logic Project.  The `readme` links to this sample tutorial, created from [this database.](https://valhuber.github.io/ApiLogicServer/Sample-Database/).  
 
 In this tutorial, we will explore:
 
@@ -8,12 +8,13 @@ In this tutorial, we will explore:
 
 * **customize** - we will then explore some customizations already done for the API and logic, and how to debug them
 
-This tutorial presumes you are running in an IDE - VS Code or PyCharm.  Projects are pre-configured for VS Code with `.devcontainer` and `launch configurations,` so these instructions are oriented around VS Code.  
+This tutorial presumes you are running in an IDE - VS Code or PyCharm.  Projects are pre-configured for VS Code with `.devcontainer` and `launch configurations,` so these instructions are oriented around VS Code.
+
 &nbsp;
 
 [![Using VS Code](https://github.com/valhuber/apilogicserver/wiki/images//creates-and-runs-video.png?raw=true?raw=true)](https://youtu.be/tOojjEAct4M "Using VS Code with the ApiLogicServer container - click for video")
 
-The diagram above summarizes the create / run / customize process.  It's a video - (right) click to view.
+The diagram above summarizes the create / run / customize process.  It's a video - click to view.
 
 
 &nbsp;&nbsp;&nbsp;
@@ -22,7 +23,7 @@ The diagram above summarizes the create / run / customize process.  It's a video
 
 > Note: this page appears in the documentation, and in created projects.  This section is intended for documentation readers; if you are viewing this in a created project, the create step has already been completed, so you can skip this section.
 
-Once you have installed API Logic Server, you can use the provided CLI to [create API Logic Projects]https://valhuber.github.io/ApiLogicServer/Create-ApiLogicProject/):
+Once you have installed API Logic Server, you can use the provided CLI to [create API Logic Projects](https://valhuber.github.io/ApiLogicServer/Create-ApiLogicProject/): 
 
 ```
 ApiLogicServer create --project_name= --db_url=
@@ -33,7 +34,7 @@ The key arguments are:
 1. `project_name` - a folder with this name will be created and populated; you'll later open this with your IDE.
 
 2. `db_url` - this defaults to the SqlLite version of Northwind already provided in the project.
-      * After exploring the sample, use `ApiLogicServer examples` to see how to use your own database.
+      * After exploring the sample, use the `ApiLogicServer examples` command to see how to use your own database.
 
       * The defaulted `db_url` includes customizations we'll explore below.  If you want to see a "vanilla" creation without customizations, specify `nw-`.  You can later introduce the customizations by running `python perform_customizations.py go`.
 
@@ -47,30 +48,28 @@ Please  see [Using your IDE > Open and Execute](https://valhuber.github.io/ApiLo
 
 ## Run
 
-Created ApiLogicProjects are instantly executable.  Let's explore the Admin App and the API.
+The prior step established your Python enviroment, and started the server using the re-built launch configuration.  We are now ready to explore the Admin App and the API.
 
 ### Admin App: Multi-Page, Multi-Table, Automatic Joins
+
 To run the Admin App, follow these steps:
 
-1. Click **Run and Debug**
-   * *Note:* these steps are highlighted in the diagram below
-2. Select the `ApiLogicServer` Launch Configuration
-3. Press the green run button to start the server
-   * If you are running Docker / VS Code, and VS Code will suggest opening a Browser (the _preview_ browser is shown below).  Do so, and you should see the Home screen in your Browser.
-   * Otherwise, you can:
-      * Open a browser at [localhost:5656](localhost:5656), or
-      * Click __View > Command Palette__, select __Simple Browser__, and specify the same url
-         * Note: be aware that we have seen some issue where the _simple browser_ fails to start; just use your normal browser  
-         * Note: we have also seen that some systems are slow to load caches on first execution; browser refresh can often be helpful
-4. Explore the app: multi-page, multi-table, automatic joins
-   * Navigate to `Customer`
-     * Depending on your screen size, you may need to hit the "hamburger menu" (top left) to see the left menu
-   * Click the Customer row  to see Customer Details
-   * Observe the `Placed Order List` tab at the bottom
-   * Click the first Order row
-   * Click the `Order Detail List` tab at the bottom
-   * Click the first __Product Id__ to see its detail information
-6. (Close the app (browser), but leave the server running)
+1. In the step above, you've already
+      * Used the pre-built Launch Configuration to start the server and
+      * Started the browser to see your Admin App
+1. Navigate to `Customer`
+      * Depending on your screen size, you may need to hit the "hamburger menu" (top left) to see the left menu
+2. Click the Customer row  to see Customer Details
+3. Observe the `Placed Order List` tab at the bottom
+4. Click the first Order row
+5. Observe the `Order Detail List` tab at the bottom
+6. Observe the elements shown in the diagram
+
+      * Multi-Page - 2 pages for each table (list, with search, and display)
+      * Multi-Table - database relationships (typically from foreign keys) used to build master/detail pages
+      * Automatic Joins - the Order Detail table contains `ProductId`, but the system has joined in the `Product Name`.  You can edit the `admin.yaml` file to control such behavior.
+
+7. Close the app (browser), but __leave the server running__
 
 <figure><img src="https://github.com/valhuber/apilogicserver/wiki/images/ui-admin/run-admin-app.png?raw=true"></figure>
 
@@ -147,12 +146,12 @@ There is no code for the Admin app - it's behavior is declared in the `admin.yam
 
 While a standards-based API is a great start, sometimes you need custom endpoints tailored exactly to your business requirement.  You can create these as shown below, where we create an additional endpoint for `add_order`.
 
-To review the implementation:
+To review the implementation: 
 
 1. Open **Explorer > api/customize_api.py**:
 3. Set the breakpoint as shown
 4. Use the swagger to access the `ServicesEndPoint > add_order`, and
-   1. **Try it out**, then
+   1. **Try it out**, then 
    2. **execute**
 5. Your breakpoint will be hit
    1. You can examine the variables, step, etc.
@@ -165,7 +164,7 @@ To review the implementation:
 API and UI automation are impressive answers to familiar challenges.  Logic automation is a _unique_ answer to a significant and unaddressed problem:
 
 > For transaction systems, backend constraint and derivation logic is often nearly *half* the system.  This is not addressed by conventional approaches of "your code goes here".
-
+ 
 The *logic* portion of API *Logic* server is a declarative approach - you declare spreadsheet-like rules for multi-table constraints and derivations.  The 5 rules shown below represent the same logic as 200 lines of Python - a remarkable **40X.**
 
 > Since they automate all the re-use and dependency management, rules are [40X more concise](https://github.com/valhuber/LogicBank/wiki/by-code) than code.  Like a spreadsheet, rules __watch__ for changes, __react__ by automatically executing relevant rules, which can __chain__ to activate other rules; you can [visualize the process here](https://valhuber.github.io/ApiLogicServer/Logic:-Rules-plus-Python#logic-execution-add-order---watch-react-chain).
@@ -194,8 +193,8 @@ You can test using standard api and ui test tools.  We recommend exploring the [
 
 TL;DR - features and test scripts are predefined in the sample; to run them (with the server running):
 
-1. Run Launch Configuration `Run Behave Logic`
-2. Run Launch Configuration ``Behave Logic Report``
+1. Run Launch Configuration `Run Behave Logic` 
+2. Run Launch Configuration ``Behave Logic Report`` 
 3. Open `test/api_logic_server_behave/reports/Behave Logic Report.md`
 
 &nbsp;&nbsp;

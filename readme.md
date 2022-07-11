@@ -1,7 +1,7 @@
 # Tutorial
 Welcome to the Sample Database Readme - [run the Tutorial](Tutorial).
 
-This project is the standard Tutorial, with (slight) adaptions for [CodeSpaces](https://valhuber.github.io/ApiLogicServer/Tech-CodeSpaces/).
+...Also available in [the docs](https://valhuber.github.io/ApiLogicServer/Tutorial/)]
 
 The standard API Logic Project readme follows...
 
@@ -38,8 +38,8 @@ python api_logic_server_run.py
 
 | About                    | Info                               |
 |:-------------------------|:-----------------------------------|
-| Created                  | July 04, 2022 16:07:22                      |
-| API Logic Server Version | 5.03.10           |
+| Created                  | July 10, 2022 19:39:10                      |
+| API Logic Server Version | 5.03.11           |
 | Created in directory     | ../../servers/ApiLogicProject |
 | API Name                 | api          |
 
