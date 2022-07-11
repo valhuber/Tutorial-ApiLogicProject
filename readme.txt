@@ -14,4 +14,5 @@ got Admin App working using Launch Configuration = ApiLogicServer
 
   the 1st arg (line 24 in launch.json) is the host; set to "copy local address" from above
 
-  fails with: OSError: [Errno 99] Cannot assign requested address
+  fails with: OSError: [Errno 99] Cannot assign requested address 
+    and, once fails, must restart server

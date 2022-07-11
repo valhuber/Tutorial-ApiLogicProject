@@ -21,7 +21,7 @@
             "program": "api_logic_server_run.py",
             "redirectOutput": true,
             "justMyCode": false,
-            "args": ["", "5656"],
+            "args": ["valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/", "5656"],
             "console": "integratedTerminal"
         },
         {
