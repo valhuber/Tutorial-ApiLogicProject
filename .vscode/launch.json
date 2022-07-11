@@ -21,7 +21,7 @@
             "program": "api_logic_server_run.py",
             "redirectOutput": true,
             "justMyCode": false,
-            "args": ["localhost", "5656"],
+            "args": ["", "5656"],
             "console": "integratedTerminal"
         },
         {
