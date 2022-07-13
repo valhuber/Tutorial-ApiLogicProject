@@ -25,6 +25,16 @@
             "console": "integratedTerminal"
         },
         {
+            "name": "ApiLogicServer-localhost",
+            "type": "python",
+            "request": "launch",
+            "program": "api_logic_server_run.py",
+            "redirectOutput": true,
+            "justMyCode": false,
+            "args": ["localhost", "5656"],
+            "console": "integratedTerminal"
+        },
+        {
             "name": "Behave Run",
             "type": "python",
             "request": "launch",

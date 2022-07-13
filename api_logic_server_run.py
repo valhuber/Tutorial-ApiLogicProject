@@ -33,7 +33,7 @@ handler.setFormatter(formatter)
 app_logger.addHandler(handler)
 app_logger.propagate = True
 
-app_logger.setLevel(logging.INFO)  # use WARNING to reduce output
+app_logger.setLevel(logging.DEBUG)  # use WARNING to reduce output
 app_logger.info(f'\nAPI Logic Project Starting: {__file__}\n')
 
 logging.getLogger('safrs').setLevel(logging.INFO)
@@ -173,6 +173,7 @@ hostname = socket.gethostname()
 local_ip = socket.gethostbyname(hostname)
 host = "localhost"
 port = "5656"
+codespaces_debug = True     # runing with launch configs ApiLogicServer and -local, not -swagger
 if __name__ == "__main__":  # gunicorn-friendly host/port settings
     if sys.argv[1:]:
         host = sys.argv[1]  # you many need to enable cors support, below
@@ -180,8 +181,10 @@ if __name__ == "__main__":  # gunicorn-friendly host/port settings
     else:
         app_logger.debug(f'==> Network Diagnostic - defaulting host: {host}')
     flask_host = host
+    running_on = is_docker()
     if is_docker() and host == "localhost":
-        flask_host = "0.0.0.0"
+        if not codespaces_debug:
+            flask_host = "0.0.0.0"
         app_logger.debug(f'==> Network Diagnostic - using docker flask_host: {flask_host}')
     if sys.argv[2:]:
         port = sys.argv[2]  # you many need to enable cors support, below
