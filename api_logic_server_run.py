@@ -270,9 +270,6 @@ def after_request(response):
 """ start the server from create_app """
 
 if __name__ == "__main__":
-    user_host = flask_host
-    if is_docker():
-        user_host = "localhost"  # FIXME what is this??
     msg = f'API Logic Project Started, version 5.03.12, available at http://{swagger_host}:{port}'
     if is_docker():
         msg += f' (running from docker container at {flask_host} - may require refresh)'
