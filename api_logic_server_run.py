@@ -268,6 +268,7 @@ if __name__ == "__main__":
     user_host = flask_host
     if is_docker():
         user_host = "localhost"
+    flask_host = "127.0.0.1"  # FIXME temp fix
     msg = f'API Logic Project Started, version 5.02.17, available at http://{user_host}:{port}'
     if is_docker():
         msg += f' on docker container at flask_host: {flask_host}'
