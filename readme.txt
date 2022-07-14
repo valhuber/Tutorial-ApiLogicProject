@@ -16,3 +16,32 @@ got Admin App working using Launch Configuration = ApiLogicServer
 
   fails with: OSError: [Errno 99] Cannot assign requested address 
     and, once fails, must restart server
+
+7/13 - Following Thomas' advice for flask_host vs. swagger_host...
+
+  TL;DR  -- pythonanywhere
+      2022-07-14 01:41:52 ==> Network Diagnostic - not main, will start flask with [flask] host: apilogicserver.pythonanywhere.com
+      2022-07-14 01:41:52 ==> Network Diagnostic - swagger_host: apilogicserver.pythonanywhere.com 
+
+  TL;DR -- local docker
+      ==> Network Diagnostic - using docker flask_host: 0.0.0.0
+      ==> Network Diagnostic - create_app exposes api on [swagger] host localhost
+          api/expose_api_models -- host = localhost, port = 5656
+      API Logic Project Started, version 5.03.12, available at http://localhost:5656 (running from docker container at 0.0.0.0 - may require refresh)
+
+  TL;DR -- Codespaces {ApiLogicServer}
+      ==> Network Diagnostic - create_app exposes api on [swagger] host 127.0.0.1
+      API Logic Project Started, version 5.02.17, available at http://localhost:5656 on docker container at flask_host: 127.0.0.1
+
+  TL;DR -- Codespaces {ApiLogicServer-swagger}
+      ==> Network Diagnostic - create_app exposes api on [swagger] host valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev
+      API Logic Project Started, version 5.02.17, available at http://localhost:5656 on docker container at flask_host: valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev
+        Fails to start server with "Cannot assign requested address"
+
+  TL;DR -- Codespaces {ApiLogicServer-swagger with flask_host override}
+      ==> Network Diagnostic - create_app exposes api on [swagger] host valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev
+      API Logic Project Started, version 5.02.17, available at http://localhost:5656 on docker container at flask_host: 127.0.0.1
+
+      this runs better - app runs, swagger has right url, but hangs... public port?? No, still fails using "public"
+
+
