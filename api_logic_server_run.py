@@ -154,7 +154,8 @@ def create_app(config_filename=None):
         if admin_enabled:
             db.create_all()
             db.create_all(bind='admin')
-            session.commit()
+            session.commit()  
+        app_logger.debug(f'==> Network Diagnostic - create_app exposes api on [swagger] host {host}')
         safrs_api = expose_api_models.expose_models(flask_app, HOST=host, PORT=port, API_PREFIX=API_PREFIX)
 
         customize_api.expose_services(flask_app, safrs_api, project_dir, HOST=host, PORT=port)  # custom services
@@ -269,6 +270,6 @@ if __name__ == "__main__":
         user_host = "localhost"
     msg = f'API Logic Project Started, version 5.02.17, available at http://{user_host}:{port}'
     if is_docker():
-        msg += f' on docker container'
+        msg += f' on docker container at flask_host: {flask_host}'
     app_logger.info(msg)
     flask_app.run(host=flask_host, threaded=False, port=port)
