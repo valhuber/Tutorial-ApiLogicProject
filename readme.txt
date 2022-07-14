@@ -46,5 +46,5 @@ https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/
       this runs better - app runs, swagger has right url, but hangs... public port?? No, still fails using "public"
 
 7/14
-  Added swagger-host as 3rd arg, updated LaunchCongig=ApiLogicServer-swagger to use it.  
-  App runs, Swagger has specified URL, but hangs on Try It Now.
+  Added swagger-host as 3rd arg, updated LaunchConfig=ApiLogicServer-swagger to use it.  
+  App runs, Swagger has specified URL, but hangs on Try It Now.  Public does not help.  http did not seem to help
