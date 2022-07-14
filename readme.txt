@@ -2,6 +2,7 @@ got Admin App working using Launch Configuration = ApiLogicServer
 
   1 - add 5656 port, start server and click port > globe
   2 - port > copy local address: https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/
+https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/
 
 
 7/11 - I can run swagger (got this from Browser tools during admin app execution)
@@ -44,4 +45,6 @@ got Admin App working using Launch Configuration = ApiLogicServer
 
       this runs better - app runs, swagger has right url, but hangs... public port?? No, still fails using "public"
 
-
+7/14
+  Added swagger-host as 3rd arg, updated LaunchCongig=ApiLogicServer-swagger to use it.  
+  App runs, Swagger has specified URL, but hangs on Try It Now.
