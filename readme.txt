@@ -9,6 +9,9 @@ https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/
 
   curl -o ~/Desktop/curl-out.txt 'https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/api/OrderDetail/1040?include=Product,Order&page[limit]=1' --globoff -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0) Gecko/20100101 Firefox/102.0' -H 'Accept: application/json' -H 'Accept-Language: en-US,en;q=0.5'  -H 'Referer: https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/admin-app/index.html' -H 'authorization: Bearer xxxx' -H 'Connection: keep-alive' -H 'Sec-Fetch-Dest: empty' -H 'Sec-Fetch-Mode: cors' -H 'Sec-Fetch-Site: same-origin'
 
+  curl -o ~/Desktop/curl-out.txt 'https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/api/OrderDetail/1040?include=Product,Order&page[limit]=1' --globoff -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0) Gecko/20100101 Firefox/102.0' -H 'Accept: application/json' -H 'Accept-Language: en-US,en;q=0.5'  -H 'Referer: https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/admin-app/index.html' -H 'authorization: Bearer xxxx' -H 'Connection: keep-alive' -H 'Sec-Fetch-Dest: empty' -H 'Sec-Fetch-Mode: cors' 
+
+
       later:  lose ferrer, use agent, conn alive, sec-fetch... as you can
 
 7/11 - But, unable to run swagger using Launch Configuration = ApiLogicServer-swagger
@@ -47,4 +50,20 @@ https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/
 
 7/14
   Added swagger-host as 3rd arg, updated LaunchConfig=ApiLogicServer-swagger to use it.  
-  App runs, Swagger has specified URL, but hangs on Try It Now.  Public does not help.  http did not seem to help
+  App runs, Swagger has specified URL, but hangs on Try It Now.  
+    Public does not help.  http did not seem to help
+  Curl now fails with 302
+    <html>
+    <head><title>302 Found</title></head>
+      <body>
+        <center><h1>302 Found</h1></center>
+        <hr><center>nginx/1.17.7</center>
+      </body>
+    </html>
+  Networking is flaky - I often need to restart server, or delete/re-add port 
+    127.0.0.1 - - [15/Jul/2022 02:12:49] code 400, message Bad request version ("´\x80\x8b-ø«®\x00>\x13\x02\x13\x03\x13\x01À,À0\x00\x9fÌ©Ì¨ÌªÀ+À/\x00\x9eÀ$À(\x00kÀ#À'\x00gÀ")
+    127.0.0.1 - - [15/Jul/2022 02:12:49] "2.ÑeÈJ%ø)eg¯õ89ÖDÓab¬û¸osuì îúâýz4ÁYJI´ï\Ò@*IBñÃj´-ø«®>À,À0©Ì¨ÌªÀ+À/$À(kÀ#À'gÀ" HTTPStatus.BAD_REQUEST -
+  Options I tried
+    1 - In launch config, change flask-port to localhost
+    2 - And, disable api_logic_server_run.py -- use_docker_override = False
+

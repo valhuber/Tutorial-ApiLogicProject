@@ -185,7 +185,7 @@ if __name__ == "__main__":  # gunicorn-friendly host/port settings ()
     else:
         app_logger.debug(f'==> Network Diagnostic - defaulting host: {flask_host}')
     if is_docker() and flask_host == "localhost":
-        use_docker_override = True
+        use_docker_override = False
         if use_docker_override:
             flask_host = "0.0.0.0"  # noticeably faster
         app_logger.debug(f'==> Network Diagnostic - using docker_override for flask_host: {flask_host}')
