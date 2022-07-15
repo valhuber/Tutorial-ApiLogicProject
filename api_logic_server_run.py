@@ -188,7 +188,7 @@ if __name__ == "__main__":  # gunicorn-friendly host/port settings ()
         use_docker_override = False
         if use_docker_override:
             flask_host = "0.0.0.0"  # noticeably faster
-        app_logger.debug(f'==> Network Diagnostic - using docker_override for flask_host: {flask_host}')
+            app_logger.debug(f'==> Network Diagnostic - using docker_override for flask_host: {flask_host}')
     if sys.argv[2:]:
         port = sys.argv[2]  # you many need to enable cors support, below
         app_logger.debug(f'==> Network Diagnostic - using specified port: {sys.argv[2]}')
