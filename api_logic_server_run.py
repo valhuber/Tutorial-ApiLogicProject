@@ -170,7 +170,7 @@ def create_app(config_filename=None, swagger_host: str = None, flask_host: str =
 
 # address where the api will be hosted, change this if you're not running the app on localhost!
 network_diagnostics = True
-hostname = socket.gethostname()
+hostname = socket.gethostname()  # e.g., 'codespaces-501af0'
 local_ip = socket.gethostbyname(hostname)
 
 # defaults from ApiLogicServer create command...
