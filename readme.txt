@@ -61,8 +61,10 @@ https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/
       </body>
     </html>
   Networking is flaky - I often need to restart server, or delete/re-add port 
-    127.0.0.1 - - [15/Jul/2022 02:12:49] code 400, message Bad request version ("´\x80\x8b-ø«®\x00>\x13\x02\x13\x03\x13\x01À,À0\x00\x9fÌ©Ì¨ÌªÀ+À/\x00\x9eÀ$À(\x00kÀ#À'\x00gÀ")
-    127.0.0.1 - - [15/Jul/2022 02:12:49] "2.ÑeÈJ%ø)eg¯õ89ÖDÓab¬û¸osuì îúâýz4ÁYJI´ï\Ò@*IBñÃj´-ø«®>À,À0©Ì¨ÌªÀ+À/$À(kÀ#À'gÀ" HTTPStatus.BAD_REQUEST -
+    1 - log info
+      127.0.0.1 - - [15/Jul/2022 02:12:49] code 400, message Bad request version ("´\x80\x8b-ø«®\x00>\x13\x02\x13\x03\x13\x01À,À0\x00\x9fÌ©Ì¨ÌªÀ+À/\x00\x9eÀ$À(\x00kÀ#À'\x00gÀ")
+      127.0.0.1 - - [15/Jul/2022 02:12:49] "2.ÑeÈJ%ø)eg¯õ89ÖDÓab¬û¸osuì îúâýz4ÁYJI´ï\Ò@*IBñÃj´-ø«®>À,À0©Ì¨ÌªÀ+À/$À(kÀ#À'gÀ" HTTPStatus.BAD_REQUEST -
+    2 - Bad Gateway on starting the globe
   Options I tried
     1 - In launch config, change flask-port to localhost
     2 - And, disable api_logic_server_run.py -- use_docker_override = False
