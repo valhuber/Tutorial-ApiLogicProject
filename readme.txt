@@ -69,3 +69,7 @@ https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/
     1 - In launch config, change flask-port to localhost
     2 - And, disable api_logic_server_run.py -- use_docker_override = False
 
+
+7/15 - cURL now running
+
+  Changed Port Visibility to public, then it ran

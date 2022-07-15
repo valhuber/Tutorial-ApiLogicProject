@@ -30,7 +30,7 @@
             "request": "launch",
             "program": "api_logic_server_run.py",
             "redirectOutput": true,
-            "justMyCode": false,
+            "justMyCode": true,
             "args": ["localhost", "5656"],
             "console": "integratedTerminal"
         },
