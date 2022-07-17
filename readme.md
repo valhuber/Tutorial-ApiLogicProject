@@ -1,7 +1,7 @@
 # Tutorial
 Welcome to the Sample Database Readme - [run the Tutorial](Tutorial).
 
-...Also available in [the docs](https://valhuber.github.io/ApiLogicServer/Tutorial/)]
+...Also available in [the docs](https://valhuber.github.io/ApiLogicServer/Tutorial/).
 
 The standard API Logic Project readme follows...
 
@@ -10,24 +10,25 @@ The standard API Logic Project readme follows...
 # API Logic Server
 
 
-This project was created by API Logic Server.  Edit / extend this readme as desired.
+This project was created by the API Logic Server with the `ApiLogicServer create` command.  Edit / extend this readme as desired.
 
 &nbsp;&nbsp;
 
 # Setup and Run
 
 ### Establish your Python environment
-Install your projects' virtual environment
-as [described here](https://valhuber.github.io/ApiLogicServer/Project-Env/). See also the `venv_setup` directory in your API Logic Project.
+To run your project, the system requires various runtime systems for data access, api, and logic.  These are [included with API Logic Server](https://valhuber.github.io/ApiLogicServer/Architecture-What-Is/).  The procedure for effecting this inclusion depends on your install:
 
-### For SqlServer, install `pyodbc`
-Not required for docker-based projects.  For local installs, see the [Quick Start](https://valhuber.github.io/ApiLogicServer/Install-pyodbc/).
+* Docker - your runtime systems are part of Dev Container, which you probably activated when you [opened the project](https://valhuber.github.io/ApiLogicServer/IDE-Execute/)
+* Local Installs - `pip install` your projects' virtual environment
+as [described here](https://valhuber.github.io/ApiLogicServer/Project-Env/).
+
+    * See also the `venv_setup` directory in this API Logic Project.
+
+    * If using SqlServer, install `pyodbc`.  Not required for docker-based projects.  For local installs, see the [Quick Start](https://valhuber.github.io/ApiLogicServer/Install-pyodbc/).
 
 ### Run
-Then, start the API, either by IDE launch configurations, or by command line:
-```
-python api_logic_server_run.py
-```
+Then, start the API, either by __IDE launch configurations__, or by command line: `python api_logic_server_run.py`.
 
 * **Open the Admin App -** [http://localhost:5656/admin-app/index.html#/Home](http://localhost:5656/admin-app/index.html#/Home)
 
@@ -38,8 +39,8 @@ python api_logic_server_run.py
 
 | About                    | Info                               |
 |:-------------------------|:-----------------------------------|
-| Created                  | July 10, 2022 19:39:10                      |
-| API Logic Server Version | 5.03.11           |
+| Created                  | July 16, 2022 15:46:50                      |
+| API Logic Server Version | 5.03.18           |
 | Created in directory     | ../../servers/ApiLogicProject |
 | API Name                 | api          |
 
@@ -118,7 +119,7 @@ This project was created with the following directory structure:
 | ```database``` | SQLAlchemy Data Model Classes | ```database/customize_models.py``` | Add derived attributes, and relationships missing in the schema                       |
 | ```logic``` | Transactional Logic           | ```logic/declare_logic.py```       | Declare multi-table derivations, constraints, and events such as send mail / messages |
 | ```ui``` | Admin App                     | ```ui/admin/admin.yaml```          | Control field display - order, captions etc.                                          |
-
+| ```tests``` | Behave Test Suite              | ```tests/api_logic_server_behave/features```          | Declare and implement [Behave Tests](https://valhuber.github.io/ApiLogicServer/Behave/)                                          |
 &nbsp;
 
 ### Key Customization File - Typical Customization

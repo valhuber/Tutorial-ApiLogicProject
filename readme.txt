@@ -3,6 +3,8 @@ got Admin App working using Launch Configuration = ApiLogicServer
   1 - add 5656 port, start server and click port > globe
   2 - port > copy local address: https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/
 https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/
+  http://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev:5656/api
+
 
 
 7/11 - I can run swagger (got this from Browser tools during admin app execution)
