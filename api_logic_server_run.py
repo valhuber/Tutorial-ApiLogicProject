@@ -225,6 +225,7 @@ def admin_yaml():
         return send_file(mem, mimetype='text/plain')
     else:
         response = send_file("ui/admin/admin.yaml", mimetype='text/yaml')
+        app_logger.debug(f'==> Network Diagnostic - loading ui/admin/admin.yaml from file')
         return response
 
 
