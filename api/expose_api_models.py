@@ -13,8 +13,12 @@ app_logger.info("api/expose_api_models.py - endpoint for each table")
 
 def expose_models(app, swagger_host="localhost", PORT=5656, API_PREFIX="/api", **kwargs):
     """ create SAFRSAPI, exposing each model (note: end point names are table names) """
+    import os
     app_logger.debug(f"api/expose_api_models -- swagger_host = {swagger_host}, port = {PORT}")
-    api = SAFRSAPI(app, host=swagger_host, port=PORT, prefix = API_PREFIX, **kwargs)
+    if os.getenv('CODESPACES'):  # port is implicit and gets mapped
+        api = SAFRSAPI(app, host=swagger_host, prefix = API_PREFIX, **kwargs)  # FAILS, defaults to 5000
+    else:
+        api = SAFRSAPI(app, host=swagger_host, port=PORT, prefix = API_PREFIX, **kwargs)
     safrs_log_level = safrs.log.getEffectiveLevel()
     if True or app_logger.getEffectiveLevel() >= logging.INFO:
         safrs.log.setLevel(logging.WARN)  # warn is 20, info 30
