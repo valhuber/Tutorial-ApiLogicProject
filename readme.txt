@@ -76,11 +76,17 @@ https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/
 
   Changed Port Visibility to public, then it ran
 
-7/16 - explore 5.3.18
+7/16 - explore 5.3.18 using launch: upgraded-enigma
 
   runs, but only hard coded
     fails: 
       api_root: >-https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev:5656/api
     works (not-mem):
                   https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/api
-    not running the admin_yaml()
+    cURL works:
+      curl -o ~/Desktop/curl-out.txt 'https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/api/OrderDetail/1040?include=Product,Order&page[limit]=1' --globoff -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0) Gecko/20100101 Firefox/102.0' -H 'Accept: application/json' -H 'Accept-Language: en-US,en;q=0.5'  -H 'Referer: https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/admin-app/index.html' -H 'authorization: Bearer xxxx' -H 'Connection: keep-alive' -H 'Sec-Fetch-Dest: empty' -H 'Sec-Fetch-Mode: cors' -H 'Sec-Fetch-Site: same-origin'
+
+7/17 - launch: upgraded-enigma    port: public, http
+  cURL still works
+  works with nonMem
+  fails with Mem

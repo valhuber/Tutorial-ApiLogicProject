@@ -212,7 +212,7 @@ def index():
 @flask_app.route('/ui/admin/admin.yaml')
 def admin_yaml():
     import io
-    use_type = "mem"
+    use_type = "NOTmem"
     if use_type == "mem":
         with open("ui/admin/admin.yaml", "r") as f:
             content = f.read()
@@ -220,9 +220,9 @@ def admin_yaml():
         content = content.replace("{port}", port)
         content = content.replace("{api}", API_PREFIX)
         result_url = f'<http://>{swagger_host}:{port}{API_PREFIX}'
-        app_logger.debug(f'loading ui/admin/admin.yaml with ~ {result_url}')
+        app_logger.debug(f'==> Network Diagnostic - loading ui/admin/admin.yaml with ~ {result_url}')
         mem = io.BytesIO(str.encode(content))
-        return send_file(mem, mimetype='text/yaml')
+        return send_file(mem, mimetype='text/plain')
     else:
         response = send_file("ui/admin/admin.yaml", mimetype='text/yaml')
         return response
