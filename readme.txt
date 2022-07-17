@@ -73,3 +73,10 @@ https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/
 7/15 - cURL now running
 
   Changed Port Visibility to public, then it ran
+
+
+7/16 - experiment with 5.3.18
+
+  Running on main: api_root: https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/api
+  But on other StunningHappines
+    https://valhuber-tutorial-apilogicproject-jjr5qwg72vxg-5656.githubpreview.dev/

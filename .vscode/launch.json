@@ -25,6 +25,16 @@
             "console": "integratedTerminal"
         },
         {
+            "name": "stunning-ApiLogicServer-swagger",
+            "type": "python",
+            "request": "launch",
+            "program": "api_logic_server_run.py",
+            "redirectOutput": true,
+            "justMyCode": false,
+            "args": ["localhost", "5656", "valhuber-tutorial-apilogicproject-jjr5qwg72vxg-5656.githubpreview.dev"],
+            "console": "integratedTerminal"
+        },
+        {
             "name": "ApiLogicServer-localhost",
             "type": "python",
             "request": "launch",
