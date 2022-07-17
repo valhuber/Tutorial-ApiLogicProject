@@ -212,7 +212,7 @@ def index():
 @flask_app.route('/ui/admin/admin.yaml')
 def admin_yaml():
     import io
-    use_type = "mem"
+    use_type = "not-mem"
     if use_type == "mem":
         with open("ui/admin/admin.yaml", "r") as f:
             content = f.read()

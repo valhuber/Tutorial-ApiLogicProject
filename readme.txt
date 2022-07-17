@@ -75,3 +75,11 @@ https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/
 7/15 - cURL now running
 
   Changed Port Visibility to public, then it ran
+
+7/16 - explore 5.3.18
+
+  runs, but only hard coded
+    fails: 
+      api_root: >-https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev:5656/api
+    works (not-mem):
+                  https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/api
