@@ -179,3 +179,4 @@ https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/
       WARNING: This is a development server. Do not use it in a production deployment.
     * Running on http://172.16.5.4:5656/ (Press CTRL+C to quit)
 
+  Runs with Mem if you remove the markers
