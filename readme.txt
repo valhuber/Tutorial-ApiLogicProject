@@ -83,3 +83,4 @@ https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/
       api_root: >-https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev:5656/api
     works (not-mem):
                   https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/api
+    not running the admin_yaml()
