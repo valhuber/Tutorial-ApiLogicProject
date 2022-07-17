@@ -3,7 +3,11 @@ about:
   recent_changes: altered Customer/Order/Employee attribute ordering, tab captions, info, EmpType, SampleDBVersion
 # this file illustrates customizations; compare it to admin-created.yaml to see the spedific changes.
   version: 5.00.09
-api_root: https://valhuber-tutorial-apilogicproject-jjr5qwg72vxg-5656.githubpreview.dev/api
+api_root:   https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/api
+# api_root: https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/api
+# api_root: https://{swagger_host}:{port}{api}
+# port.localAddr: https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/
+# api_root: http://localhost:5656/api  for local apps (just for reference)
 # for deployed apps, you might use a different uri, such as https://apilogicserver.pythonanywhere.com/api
 info:
   number_relationships: 11
@@ -25,7 +29,7 @@ resources:
           use <span style="font-family:'Courier New'">info_list</span> and 
           <span style="font-family:'Courier New'">info_show</span> to provide user information.<br><br>
           In this
-          <a target="_blank" href="https://github.com/valhuber/ApiLogicServer/wiki/Sample-Database">Northwind demo,</a>      
+          <a target="_blank" href="https://valhuber.github.io/ApiLogicServer/Sample-Database/">Northwind demo,</a>      
           Info provides Tour suggestions.  On this page...
           <ul>
             <li> <strong>Search</strong> on multiple fields (Company, Contact Name) -- try z</li>
@@ -255,7 +259,7 @@ resources:
           <ul>
             <li> Observe the Product Name in the Order Detail list.</li>
             <li> In the
-              <a target="_blank" href="https://github.com/valhuber/ApiLogicServer/wiki/Sample-Database">sample database,</a>      
+              <a target="_blank" href="https://valhuber.github.io/ApiLogicServer/Sample-Database/">sample database,</a>      
               the Order Detail is related to the Product by
               <span style="font-family:'Courier New'">ProductId.</span>
               which makes no sense to End Users.<br>
@@ -263,7 +267,7 @@ resources:
             </li>
             <li> 
               Automatic joins are configurable
-              <a target="_blank" href="https://github.com/valhuber/ApiLogicServer/wiki/Working-with-the-Admin-App">configurable.</a>
+              <a target="_blank" href="https://valhuber.github.io/ApiLogicServer/Admin-Customization/">configurable.</a>
             </li>
           </ul>
           <h3>Update Support - Lookups, Logic</h3>
@@ -278,7 +282,7 @@ resources:
                 <ul>
                   <li>
                     This is not from code, but from
-                    <a target="_blank" href="https://github.com/valhuber/ApiLogicServer/wiki/Admin-Tour#logic-enforcement">this logic.</a>
+                    <a target="_blank" href="https://valhuber.github.io/ApiLogicServer/Tutorial/#logic">this logic.</a>
                   </li>
                 </ul>
             </li>
@@ -490,5 +494,5 @@ resources:
     type: Union
     user_key: Name
 settings:
-  HomeJS: https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/admin-app/home.js
+  HomeJS: http://localhost:5656/admin-app/home.js
   max_list_columns: 8

@@ -11,12 +11,10 @@ app_logger = logging.getLogger('api_logic_server_app')
 app_logger.info("api/expose_api_models.py - endpoint for each table")
 
 
-def expose_models(app, HOST="localhost", PORT=5656, API_PREFIX="/api", **kwargs):
+def expose_models(app, swagger_host="localhost", PORT=5656, API_PREFIX="/api", **kwargs):
     """ create SAFRSAPI, exposing each model (note: end point names are table names) """
-    app_logger.debug(f"api/expose_api_models -- host = {HOST}, port = {PORT}")
-    use_host = HOST
-    # use_host = "valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev"
-    api = SAFRSAPI(app, host=use_host, port=PORT, prefix = API_PREFIX, **kwargs)
+    app_logger.debug(f"api/expose_api_models -- swagger_host = {swagger_host}, port = {PORT}")
+    api = SAFRSAPI(app, host=swagger_host, port=PORT, prefix = API_PREFIX, **kwargs)
     safrs_log_level = safrs.log.getEffectiveLevel()
     if True or app_logger.getEffectiveLevel() >= logging.INFO:
         safrs.log.setLevel(logging.WARN)  # warn is 20, info 30

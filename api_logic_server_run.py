@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-  ApiLogicServer v 5.03.14
+  ApiLogicServer v 5.03.18
 
-  Created on July 14, 2022 08:07:22
+  Created on July 16, 2022 15:46:50
 
   $ python3 api_logic_server_run.py [Listener-IP] [port] [swagger-IP]    # starts your ApiLogicServer project
 
@@ -155,9 +155,9 @@ def create_app(config_filename=None, swagger_host: str = None, flask_host: str =
             db.create_all(bind='admin')
             session.commit()
 
-        app_logger.debug(f'==> Network Diagnostic - create_app exposes api on swagger_host {swagger_host}')
-        safrs_api = expose_api_models.expose_models(flask_app, HOST=swagger_host, PORT=port, API_PREFIX=API_PREFIX)
-        customize_api.expose_services(flask_app, safrs_api, project_dir, HOST=swagger_host, PORT=port)  # custom services
+        app_logger.debug(f'\n==> Network Diagnostic - create_app exposing api on swagger_host: {swagger_host}')
+        safrs_api = expose_api_models.expose_models(flask_app, swagger_host=swagger_host, PORT=port, API_PREFIX=API_PREFIX)
+        customize_api.expose_services(flask_app, safrs_api, project_dir, swagger_host=swagger_host, PORT=port)  # custom services
 
         from database import customize_models
         app_logger.debug(f'Customizations for API and Model activated\n')
@@ -170,7 +170,7 @@ def create_app(config_filename=None, swagger_host: str = None, flask_host: str =
 
 # address where the api will be hosted, change this if you're not running the app on localhost!
 network_diagnostics = True
-hostname = socket.gethostname()  # e.g., 'codespaces-501af0'
+hostname = socket.gethostname()
 local_ip = socket.gethostbyname(hostname)
 
 # defaults from ApiLogicServer create command...
@@ -181,13 +181,13 @@ port = "5656"
 if __name__ == "__main__":  # gunicorn-friendly host/port settings ()
     if sys.argv[1:]:
         flask_host = sys.argv[1]  # you many need to enable cors support, below
-        app_logger.debug(f'==> Network Diagnostic - using specified host: {sys.argv[1]}')
+        app_logger.debug(f'==> Network Diagnostic - using specified flask_host: {sys.argv[1]}')
     else:
-        app_logger.debug(f'==> Network Diagnostic - defaulting host: {flask_host}')
+        app_logger.debug(f'==> Network Diagnostic - defaulting flask_host: {flask_host}')
     if is_docker() and flask_host == "localhost":
         use_docker_override = True
         if use_docker_override:
-            flask_host = "0.0.0.0"  # noticeably faster
+            flask_host = "0.0.0.0"  # noticeably faster (at least on Mac)
             app_logger.debug(f'==> Network Diagnostic - using docker_override for flask_host: {flask_host}')
     if sys.argv[2:]:
         port = sys.argv[2]  # you many need to enable cors support, below
@@ -208,20 +208,25 @@ def index():
     app_logger.debug(f'API Logic Server - redirect /admin-app/index.html')
     return redirect('/admin-app/index.html')
 
-"""
-@flask_app.route('/ui/admin/admin.yaml')
-def admin(path=None):  # test http://localhost/ui/admin/admin.yaml
-    with open("ui/admin/admin.yaml", "r") as f:
-        content = f.read()
-    app_logger.debug(f'loading ui/admin/admin.yaml')
-    return render_template('content.html', content=content)
-"""
-
 
 @flask_app.route('/ui/admin/admin.yaml')
 def admin_yaml():
-    response = send_file("ui/admin/admin.yaml", mimetype='text/yaml')
-    return response
+    import io
+    use_type = "mem"
+    if use_type == "mem":
+        with open("ui/admin/admin.yaml", "r") as f:
+            content = f.read()
+        content = content.replace("{swagger_host}", swagger_host)
+        content = content.replace("{port}", port)
+        content = content.replace("{api}", API_PREFIX)
+        result_url = f'<http://>{swagger_host}:{port}{API_PREFIX}'
+        app_logger.debug(f'==> Network Diagnostic - loading ui/admin/admin.yaml with ~ {result_url}')
+        mem = io.BytesIO(str.encode(content))
+        return send_file(mem, mimetype='text/plain')
+    else:
+        response = send_file("ui/admin/admin.yaml", mimetype='text/yaml')
+        app_logger.debug(f'==> Network Diagnostic - loading ui/admin/admin.yaml from file')
+        return response
 
 
 @flask_app.route("/admin-app/<path:path>")
