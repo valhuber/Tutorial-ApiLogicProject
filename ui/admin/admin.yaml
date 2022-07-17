@@ -3,8 +3,8 @@ about:
   recent_changes: altered Customer/Order/Employee attribute ordering, tab captions, info, EmpType, SampleDBVersion
 # this file illustrates customizations; compare it to admin-created.yaml to see the spedific changes.
   version: 5.00.09
-api_root:   https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/api
-# api_root: https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/api
+api_root:   https://{swagger_host}{api}
+# api_root: https://valhuber-tutorial-apilogicproject-jjr5qwg72vxg-5656.githubpreview.dev/api
 # api_root: https://{swagger_host}:{port}{api}
 # port.localAddr: https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/
 # api_root: http://localhost:5656/api  for local apps (just for reference)
