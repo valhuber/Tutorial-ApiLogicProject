@@ -89,4 +89,49 @@ https://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev/
 7/17 - launch: upgraded-enigma    port: public, http
   cURL still works
   works with nonMem
+
+    API Logic Project Starting: api_logic_server_run.py
+
+    api/expose_api_models.py - endpoint for each table
+    database/db.py - got session: <sqlalchemy.orm.scoping.scoped_session object at 0x7fc01d39d9a0>
+    logic/__init__ begin
+    logic/declare_logic.py - importing declare_logic
+    logic/__init__ end
+
+    ==> Network Diagnostic - using specified flask_host: localhost
+    ==> Network Diagnostic - using docker_override for flask_host: 0.0.0.0
+    ==> Network Diagnostic - using specified port: 5656
+    ==> Network Diagnostic - using specified swagger_host: valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev
+    config.py - db_url: sqlite:////workspaces/Tutorial-ApiLogicProject/database/db.sqlite
+    config.py - SQLALCHEMY_DATABASE_URI: sqlite:////workspaces/Tutorial-ApiLogicProject/database/db.sqlite
+
+    Log width truncated for readability -- see api_logic_server_run.py in your API Logic Project
+
+
+
+    logic/logic_bank.py: declare_logic complete
+    Logic Bank 01.07.01 - 22 rules loaded
+
+    ==> Network Diagnostic - create_app exposing api on swagger_host: valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev
+    api/expose_api_models -- swagger_host = valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev, port = 5656
+    /usr/local/lib/python3.9/site-packages/safrs/base.py:929: SAWarning: Dialect sqlite+pysqlite does *not* support Decimal objects natively, and SQLAlchemy must convert from floating point - rounding errors and other issues may occur. Please consider storing Decimal numbers as strings or integers on this platform for lossless storage.
+      sample = cls.query.first()
+
+    *** Customizable API Logic Project created -- open it with your IDE at /workspaces/Tutorial-ApiLogicProject
+    *** Server now running -- explore sample data and API at swagger_host: http://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev:5656/
+
+    api/expose_service.py - Exposing custom services
+    database/customize_models.py - models.Employee.Manager(manages), Employee.ProperSalary
+
+    Customizations for API and Model activated
+
+    API Logic Project Started, version 5.03.12, available at http://valhuber-tutorial-apilogicproject-wrv7gj45fgxq6-5656.githubpreview.dev:5656 (running from docker container at 0.0.0.0 - may require refresh)
+    * Serving Flask app "API Logic Server" (lazy loading)
+    * Environment: production
+      WARNING: This is a development server. Do not use it in a production deployment.
+      Use a production WSGI server instead.
+    * Running on all addresses.
+      WARNING: This is a development server. Do not use it in a production deployment.
+    * Running on http://172.16.5.4:5656/ (Press CTRL+C to quit)
+
   fails with Mem
