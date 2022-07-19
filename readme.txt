@@ -32,3 +32,7 @@
         that's because this code has no way to "decline" the port; e.g., tried omitting it...
             api = SAFRSAPI(app, host=swagger_host, prefix = API_PREFIX, **kwargs)  # FAILS.. port still defaults to :5000
         I don't if this is specific to os.getenv('CODESPACES'), or more common...?
+
+5/19 - use port 443 (per Thomas) for codespaces makes swagger work.
+
+    So, running cURL, app and swagger!   Yay Thomas!

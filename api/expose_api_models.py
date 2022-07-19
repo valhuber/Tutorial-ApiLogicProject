@@ -16,7 +16,7 @@ def expose_models(app, swagger_host="localhost", PORT=5656, API_PREFIX="/api", *
     import os
     app_logger.debug(f"api/expose_api_models -- swagger_host = {swagger_host}, port = {PORT}")
     if os.getenv('CODESPACES'):  # port is implicit and gets mapped
-        api = SAFRSAPI(app, host=swagger_host, prefix = API_PREFIX, **kwargs)  # FAILS, defaults to 5000
+        api = SAFRSAPI(app, host=swagger_host, port=443, prefix = API_PREFIX, **kwargs)  # FAILS, defaults to 5000
     else:
         api = SAFRSAPI(app, host=swagger_host, port=PORT, prefix = API_PREFIX, **kwargs)
     safrs_log_level = safrs.log.getEffectiveLevel()
