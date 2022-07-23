@@ -339,15 +339,16 @@ if is_docker() and flask_host == "localhost":
         app_logger.debug(f'\n==> Network Diagnostic - using docker_override for flask_host: {flask_host}')
 port = "5656"
 
+(flask_host, swagger_host, port, verbose, create_and_run) = get_args()
+if verbose:
+    app_logger.setLevel(logging.DEBUG)
+
 flask_app, safrs_api = create_app(flask_host = flask_host, swagger_host = swagger_host)
 flask_events(flask_app)
 
 how_run = "(from WSGI)"
 if __name__ == "__main__":
     how_run = "(not WSGI)"
-    (flask_host, swagger_host, port, verbose, create_and_run) = get_args()
-    if verbose:
-        app_logger.setLevel(logging.DEBUG)
 
     msg = f'API Logic Project Loaded {how_run}, version 5.03.18, configured for http://{swagger_host}:{port}\n'
     if is_docker():
@@ -361,4 +362,4 @@ if __name__ == "__main__":
     app_logger.info(f'Server starting -- '
                 f'explore sample data and API on swagger_host: http://{swagger_host}:{port}/\n')
 
-    flask_app.run(host=flask_host, threaded=False, port=5656)
+    flask_app.run(host=flask_host, threaded=False, port=port)
