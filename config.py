@@ -53,7 +53,7 @@ class Config:
 
     # override SQLALCHEMY_DATABASE_URI here as required
 
-    app_logger.info(f'config.py - SQLALCHEMY_DATABASE_URI: {SQLALCHEMY_DATABASE_URI}')
+    app_logger.debug(f'config.py - SQLALCHEMY_DATABASE_URI: {SQLALCHEMY_DATABASE_URI}')
 
     # SQLALCHEMY_ECHO = environ.get("SQLALCHEMY_ECHO")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
