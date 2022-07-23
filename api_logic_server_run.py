@@ -308,7 +308,7 @@ def create_app(config_filename=None, swagger_host: str = None, flask_host: str =
                 Declare   API - api/expose_api_models, URL = localhost, port = 5656
                 Customize API - api/expose_service.py, exposing custom services hello_world, add_order
             """
-            safrs_api = expose_api_models.expose_models(flask_app, swagger_host=swagger_host, PORT=port, API_PREFIX=API_PREFIX)
+            safrs_api = expose_api_models.expose_models(flask_app, swagger_host=swagger_host, PORT=443, API_PREFIX=API_PREFIX)
             customize_api.expose_services(flask_app, safrs_api, project_dir, swagger_host=swagger_host, PORT=port)  # custom services
 
             from database import customize_models
