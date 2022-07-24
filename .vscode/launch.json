@@ -11,27 +11,7 @@
             "program": "api_logic_server_run.py",
             "redirectOutput": true,
             "justMyCode": false,
-            "args": ["127.0.0.1", "5656"],
-            "console": "integratedTerminal"
-        },
-        {
-            "name": "cs-main-stunning-happiness",
-            "type": "python",
-            "request": "launch",
-            "program": "api_logic_server_run.py",
-            "redirectOutput": true,
-            "justMyCode": false,
-            "args": ["localhost", "5656", "valhuber-tutorial-apilogicproject-jjr5qwg72vxg-5656.githubpreview.dev"],
-            "console": "integratedTerminal"
-        },
-        {
-            "name": "upgraded-winner",
-            "type": "python",
-            "request": "launch",
-            "program": "api_logic_server_run.py",
-            "redirectOutput": true,
-            "justMyCode": true,
-            "args": ["localhost", "5656", "valhuber-tutorial-apilogicproject-g4xq7wprhgwg-5656.githubpreview.dev"],
+            "args": ["--flask_host=localhost", "--port=5656", "--swagger_host=localhost", "--verbose"],
             "console": "integratedTerminal"
         },
         {
@@ -53,6 +33,17 @@
             "program": "${workspaceFolder}\\test\\api_logic_server_behave\\behave_run.py",
             "redirectOutput": true,
             "args": [ "--outfile=${workspaceFolder}\\test\\api_logic_server_behave\\logs\\behave.log"],
+            "justMyCode": false,            
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Perform Customizations",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "perform_customizations.py",
+            "redirectOutput": true,
+            "args": [ "go"],
             "justMyCode": false,            
             "console": "integratedTerminal"
         },
@@ -83,13 +74,17 @@
             "console": "integratedTerminal"
         },
         {
-            "name": "Python Status",
+            "name": "Codespaces-ApiLogicServer",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/api_logic_server_cli/test/basic/server_test.py",
+            "program": "api_logic_server_run.py",
             "redirectOutput": true,
             "justMyCode": false,
-            "args": ["go"],
+            "args": [
+                "--flask_host=localhost", "--port=5656", "--verbose",
+                "--swagger_host=valhuber-tutorial-apilogicproject-jjr5qwg72vxg-5656.githubpreview.dev", 
+                "--swagger_port=443", "--http_type=https"
+            ],
             "console": "integratedTerminal"
         },
         {
