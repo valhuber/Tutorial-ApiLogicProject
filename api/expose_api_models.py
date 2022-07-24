@@ -8,20 +8,22 @@ import logging as logging
 database = __import__('database')
 
 app_logger = logging.getLogger('api_logic_server_app')
-app_logger.info("api/expose_api_models.py - endpoint for each table")
+app_logger.debug("\napi/expose_api_models.py - endpoint for each table")
 
 
 def expose_models(app, swagger_host="localhost", PORT=5656, API_PREFIX="/api", **kwargs):
-    """ create SAFRSAPI, exposing each model (note: end point names are table names) """
-    import os
-    app_logger.debug(f"api/expose_api_models -- swagger_host = {swagger_host}, port = {PORT}")
-    if os.getenv('CODESPACES'):  # port is implicit and gets mapped
-        api = SAFRSAPI(app, host=swagger_host, port=443, prefix = API_PREFIX, **kwargs)  # FAILS, defaults to 5000
-    else:
-        api = SAFRSAPI(app, host=swagger_host, port=PORT, prefix = API_PREFIX, **kwargs)
+    """
+        Declare API - create SAFRSAPI 
+            This exposes each model (note: end point names are table names) 
+            Including get (filtering, pagination, related data access) 
+            And post/patch/update (including logic enforcement) 
+        You typically do not customize this file 
+            See https://valhuber.github.io/ApiLogicServer/Tutorial/#customize-and-debug 
+    """
+    api = SAFRSAPI(app, host=swagger_host, port=PORT, prefix = API_PREFIX, **kwargs)
     safrs_log_level = safrs.log.getEffectiveLevel()
     if True or app_logger.getEffectiveLevel() >= logging.INFO:
-        safrs.log.setLevel(logging.WARN)  # warn is 20, info 30
+        safrs.log.setLevel(logging.WARN)  # log level warn is 20, info 30
     api.expose_object(database.models.Category)
     api.expose_object(database.models.Customer)
     api.expose_object(database.models.CustomerDemographic)

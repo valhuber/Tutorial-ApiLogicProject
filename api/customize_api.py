@@ -20,19 +20,14 @@ from logic_bank.rule_bank.rule_bank import RuleBank
 
 
 def expose_services(app, api, project_dir, swagger_host: str, PORT: str):
-    """ extend model end points with new end points for services
+    """ Customize API - new end points for services
 
     This sample illustrates the classic hello world,
     and a more interesting add_order.
 
      """
 
-
-    app_logger = logging.getLogger("api_logic_server_app")
-    app_logger.debug(f'\n*** Customizable API Logic Project created -- '
-             f'open it with your IDE at {project_dir}')
-    app_logger.debug(f'*** Server now running -- '
-             f'explore sample data and API at swagger_host: http://{swagger_host}:{PORT}/')
+    app_logger = logging.getLogger("api_logic_server_app")  # only for create-and-run, no?
 
 
     def rules_report():
@@ -135,9 +130,8 @@ def expose_services(app, api, project_dir, swagger_host: str, PORT: str):
         else:
             app_logger.info(f'{msg}')
         return jsonify({"result": f'ok'})
-
     
-    app_logger.info("\napi/expose_service.py - Exposing custom services")
+    app_logger.info("..api/expose_service.py, exposing custom services: hello_world, add_order")
     api.expose_object(ServicesEndPoint)
 
 

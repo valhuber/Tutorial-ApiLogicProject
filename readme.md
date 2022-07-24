@@ -39,8 +39,8 @@ Then, start the API, either by __IDE launch configurations__, or by command line
 
 | About                    | Info                               |
 |:-------------------------|:-----------------------------------|
-| Created                  | July 16, 2022 15:46:50                      |
-| API Logic Server Version | 5.03.18           |
+| Created                  | July 23, 2022 19:12:04                      |
+| API Logic Server Version | 5.03.25           |
 | Created in directory     | ../../servers/ApiLogicProject |
 | API Name                 | api          |
 
