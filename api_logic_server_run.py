@@ -404,12 +404,16 @@ if __name__ == "__main__":
         app_logger.info(f'==> Customizable API Logic Project created and running -- '
                     f'open it with your IDE at {project_dir}\n')
 
-    app_logger.info(f'Server starting -- '
-                f'explore sample data and API on swagger_host: http://{swagger_host}:{port}/\n')
+    if os.getenv('CODESPACES'):
+        app_logger.info(f'Server starting on Codespaces -- '  # FIXME (2)
+                f'explore sample data and API on swagger_host: {http_type}://{swagger_host}/\n')
+    else:
+        app_logger.info(f'Server starting -- '  # FIXME (2)
+                f'explore sample data and API on swagger_host: {http_type}://{swagger_host}:{port}/\n')
 
     flask_app.run(host=flask_host, threaded=False, port=port)
 else:
-    msg = f'API Logic Project Loaded (WSGI), version 5.03.25, configured for http://{swagger_host}:{port}\n'
+    msg = f'API Logic Project Loaded (WSGI), version 5.03.25, configured for {http_type}://{swagger_host}:{port}\n'
     if is_docker():
         msg += f' (running from docker container at {flask_host} - may require refresh)'
     app_logger.info(f'\n{msg}')
