@@ -1,0 +1,58 @@
+Codespaces
+  No venv if CS
+  no /local if CS
+  https://gist.github.com/alexpchin/102854243cd066f8b88e to make repo
+
+  ok until git push origin master
+
+  but got...
+
+    api_logic_server@codespaces-966cb8:/workspaces/MyProject$ git push origin master
+      remote: Permission to PoseyDev/MyProject.git denied to PoseyDev.
+      fatal: unable to access 'https://github.com/PoseyDev/MyProject.git/': The requested URL returned error: 403
+
+    where
+
+      api_logic_server@codespaces-966cb8:/workspaces/MyProject$  git config --list
+        credential.helper=/.codespaces/bin/gitcredential_github.sh
+        user.name=PoseyDev
+        user.email=54030760+PoseyDev@users.noreply.github.com
+        gpg.program=/.codespaces/bin/gh-gpgsign
+        core.repositoryformatversion=0
+        core.filemode=true
+        core.bare=false
+        core.logallrefupdates=true
+        remote.origin.url=https://github.com/PoseyDev/MyProject.git
+        remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+
+
+  to save; https://www.a2hosting.com/kb/developer-corner/version-control-systems1/403-forbidden-error-message-when-you-try-to-push-to-a-github-repository
+
+  git remote set-url origin "https://github-username@github.com/github-username/github-repository-name.git"
+
+    was: remote.origin.url=https://github.com/PoseyDev/MyProject.git
+
+    so: git remote set-url origin "https://PoseyDev@github.com/PoseyDev/MyProject.git"
+
+    but still
+
+    api_logic_server@codespaces-966cb8:/workspaces/MyProject$ git remote set-url origin "https://PoseyDev@github.com/PoseyDev/MyProject.git"
+    api_logic_server@codespaces-966cb8:/workspaces/MyProject$ git push origin master
+    remote: Permission to PoseyDev/MyProject.git denied to PoseyDev.
+    fatal: unable to access 'https://github.com/PoseyDev/MyProject.git/': The requested URL returned error: 403
+    api_logic_server@codespaces-966cb8:/workspaces/MyProject$
+
+    where
+
+    api_logic_server@codespaces-966cb8:/workspaces/MyProject$  git config --list
+      credential.helper=/.codespaces/bin/gitcredential_github.sh
+      user.name=PoseyDev
+      user.email=54030760+PoseyDev@users.noreply.github.com
+      gpg.program=/.codespaces/bin/gh-gpgsign
+      core.repositoryformatversion=0
+      core.filemode=true
+      core.bare=false
+      core.logallrefupdates=true
+      remote.origin.url=https://PoseyDev@github.com/PoseyDev/MyProject.git
+      remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+      api_logic_server@codespaces-966cb8:/workspaces/MyProject$
