@@ -1,37 +1,81 @@
-# Tutorial
-Welcome to the Sample Database Readme - [run the Tutorial](Tutorial).
+# Tutorial Setup
 
-...Also available in [the docs](https://valhuber.github.io/ApiLogicServer/Tutorial/).
+OK, your project is created and open.  You must _Establish Your Python Environment_ to run the Tutorial.
 
-The standard API Logic Project readme follows...
+1.  Execute the __Setup and Run__ procedure below, then 
+2. [Open the Tutorial](Tutorial.md)
+
+The standard API Logic Project Readme is included, below.
 
 &nbsp;
 
-# API Logic Server
+---
 
+&nbsp;
 
-This project was created by the API Logic Server with the `ApiLogicServer create` command.  Edit / extend this readme as desired.
+&nbsp;
+# Readme - API Logic Project
+
+This API Logic Project was created by the API Logic Server with the `ApiLogicServer create` command.  
+
+Edit / extend this readme as desired.
 
 &nbsp;&nbsp;
 
 # Setup and Run
 
-### Establish your Python environment
-To run your project, the system requires various runtime systems for data access, api, and logic.  These are [included with API Logic Server](https://valhuber.github.io/ApiLogicServer/Architecture-What-Is/).  The procedure for effecting this inclusion depends on your install:
+To run your project, the system requires various runtime systems for data access, api, and logic.  These are [included with API Logic Server](https://valhuber.github.io/ApiLogicServer/Architecture-What-Is/).  So, to run your project:
 
-* Docker - your runtime systems are part of Dev Container, which you probably activated when you [opened the project](https://valhuber.github.io/ApiLogicServer/IDE-Execute/)
-* Local Installs - `pip install` your projects' virtual environment
-as [described here](https://valhuber.github.io/ApiLogicServer/Project-Env/).
+1.  __Establish your Python Environment__ to activate these runtime systems
+    * Choose the __either__ the _Local Install_ __or__ the _Docker_ approach below, then 
+2. __Run__
 
-    * See also the `venv_setup` directory in this API Logic Project.
 
-    * If using SqlServer, install `pyodbc`.  Not required for docker-based projects.  For local installs, see the [Quick Start](https://valhuber.github.io/ApiLogicServer/Install-pyodbc/).
+&nbsp;
 
-### Run
-Then, start the API, either by __IDE launch configurations__, or by command line: `python api_logic_server_run.py`.
+## Establish Your Python Environment - Local Install
 
-* **Open the Admin App -** [http://localhost:5656/admin-app/index.html#/Home](http://localhost:5656/admin-app/index.html#/Home)
+You `requirements.txt` has already been created, so...
 
+```bash title="Install API Logic Server in a Virtual Environment"
+python -m venv venv                        # may require python3 -m venv venv
+venv\Scripts\activate                      # mac/linux: source venv/bin/activate
+python -m pip install -r requirements.txt  # accept "new Virtual environment"
+```
+
+Notes:
+
+* See also the `venv_setup` directory in this API Logic Project.
+
+* If using SqlServer, install `pyodbc`.  Not required for docker-based projects.  For local installs, see the [Quick Start](https://valhuber.github.io/ApiLogicServer/Install-pyodbc/).
+
+&nbsp;
+
+## Establish Your Python Environment - Docker
+
+Your runtime systems are part of Dev Container, which you probably activated when you [opened the project](https://valhuber.github.io/ApiLogicServer/IDE-Execute/).  If you did not accept the "Open in Container" option when you started VSCode, use __View > Command Palette > Remote-Containers: Reopen in Container__.
+
+&nbsp;
+
+## Run
+
+To run your project:
+
+* **Start the API**, either by __IDE launch configurations__ (see below), or by command line: `python api_logic_server_run.py`.
+
+* **Open the Admin App -** either
+
+    * Open your Browser at [http://localhost:5656/admin-app/index.html#/Home](http://localhost:5656/admin-app/index.html#/Home), or 
+    
+    * Open in VSCode's Simple Browser (as shown below):
+
+        1. Click __View > Command__ to open the Command Palette
+            * Enter command: `Simple Browser: Show`
+            * Specify the URL: `http://localhost:5656`
+        2. Explore the swagger - open another simple Browser with URL `http://localhost:5656/api` 
+            * Note: you can drag windows to arrange your viewing area
+
+<figure><img src="https://github.com/valhuber/apilogicserver/wiki/images/ui-admin/run-admin-app.png?raw=true"></figure>
 
 &nbsp;&nbsp;
 
@@ -39,8 +83,8 @@ Then, start the API, either by __IDE launch configurations__, or by command line
 
 | About                    | Info                               |
 |:-------------------------|:-----------------------------------|
-| Created                  | July 23, 2022 19:12:04                      |
-| API Logic Server Version | 5.03.25           |
+| Created                  | July 27, 2022 15:03:05                      |
+| API Logic Server Version | 5.03.27           |
 | Created in directory     | ../../servers/ApiLogicProject |
 | API Name                 | api          |
 
